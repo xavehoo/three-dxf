@@ -74,6 +74,7 @@ function onSuccess(evt){
     progress.textContent = '100%';
     setTimeout(function() { $progress.classList.remove('loading'); }, 2000);
     var parser = new window.DxfParser();
+    console.log(parser);
     var dxf = parser.parseSync(fileReader.result);
     
     if(dxf) {
@@ -89,7 +90,7 @@ function onSuccess(evt){
     var loader = new THREE.FontLoader();
     loader.load( 'fonts/helvetiker_regular.typeface.json', function ( response ) {
         font = response;
-        cadCanvas = new window.ThreeDxf.Viewer(dxf, document.getElementById('cad-view'), 1000, 800, font);
+        cadCanvas = new window.ThreeDxf.Viewer(dxf, document.getElementById('cad-view'), 1000, 800, font, true);
     });
     
 }
